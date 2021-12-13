@@ -16,6 +16,12 @@ session_start();
     <p>FORMULÁRIO PARA INSCRIÇÃO DE COMPETIDORES</p>
 
     <form action="script.php" method="post">
+        <?php
+        $mensagemDeError = isset($_SESSION['mensagemDeErro']) ? $_SESSION['mensagemDeErro'] : '';
+        if (!empty($mensagemDeErro)) {
+            echo $mensagemDeErro;
+        }
+        ?>
         <p>Seu nome: <input type="text" name="nome" /></p>
         <p>Sua idade: <input type="text" name="idade" /></p>
         <p><input type="submit" value="Enviar dados do competidor" /></p>
